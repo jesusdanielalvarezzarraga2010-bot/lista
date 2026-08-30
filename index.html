@@ -1,0 +1,1489 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rizos, Lisos y Colores | Tu aliado en cada estilo</title>
+<meta name="description" content="Tienda especializada en cuidado capilar para cabello rizado y liso, coloración y accesorios. Tu aliado en cada estilo.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Ccircle cx='12' cy='12' r='11' fill='%230e2f57'/%3E%3Ccircle cx='12' cy='12' r='6' fill='%23d4af37'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0e2f57;
+  --navy-dark:#081f3d;
+  --navy-deep:#0a2445;
+  --gold:#d4af37;
+  --gold-dark:#b8942f;
+  --gold-light:#e6c85a;
+  --beige:#e7d7b5;
+  --muted:#7c8496;
+  --line:#ece7dc;
+  --radius:12px;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Montserrat',sans-serif;color:var(--navy);background:#fff;line-height:1.6;-webkit-font-smoothing:antialiased;}
+img,svg{display:block;max-width:100%;}
+a{text-decoration:none;color:inherit;}
+ul{list-style:none;}
+.container{max-width:1240px;margin:0 auto;padding:0 24px;}
+
+.topbar{background:var(--navy);color:#fff;font-size:12.5px;position:relative;z-index:60;}
+.topbar-inner{display:flex;justify-content:space-between;align-items:center;gap:18px;padding:9px 0;flex-wrap:wrap;}
+.topbar-group{display:flex;align-items:center;gap:20px;}
+.topbar-item{display:flex;align-items:center;gap:7px;opacity:.92;}
+.topbar-item svg{color:var(--gold);}
+.topbar-cart{background:none;border:none;color:inherit;font-family:inherit;font-size:12px;cursor:pointer;padding:4px 6px;transition:opacity .2s;}
+.topbar-cart:hover{opacity:1;}
+.topbar-center{display:flex;align-items:center;gap:9px;opacity:.95;}
+.topbar-center .dot{width:26px;height:26px;border-radius:50%;background:rgba(212,175,55,.18);display:flex;align-items:center;justify-content:center;color:var(--gold);}
+
+.header{background:#fff;border-bottom:1px solid var(--line);position:relative;z-index:50;}
+.header-inner{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:12px 0;}
+.brand{display:flex;align-items:center;gap:14px;flex-shrink:0;}
+.brand .logo-slot{width:64px;height:64px;flex-shrink:0;filter:drop-shadow(0 3px 8px rgba(14,47,87,.18));}
+.brand-name{font-size:15px;font-weight:800;letter-spacing:.4px;text-transform:uppercase;line-height:1.25;}
+.brand-name span{display:block;color:var(--gold);font-size:9.5px;letter-spacing:2.4px;font-weight:700;margin-top:2px;}
+
+.nav ul{display:flex;gap:20px;align-items:center;}
+.nav a{font-size:11px;letter-spacing:1.1px;font-weight:700;color:var(--navy);text-transform:uppercase;padding:8px 0;display:inline-block;transition:color .2s;position:relative;}
+.nav a:hover{color:var(--gold);}
+.nav a.active{color:var(--gold);}
+.nav li.has-sub{position:relative;}
+.nav li.has-sub>a::after{content:"▾";margin-left:5px;font-size:8px;color:var(--gold);}
+.nav .dropdown{position:absolute;top:100%;left:-12px;background:#fff;min-width:220px;border:1px solid var(--line);border-radius:10px;box-shadow:0 18px 40px rgba(8,31,61,.16);padding:10px 0;opacity:0;visibility:hidden;transform:translateY(10px);transition:.25s;}
+.nav li.has-sub:hover .dropdown{opacity:1;visibility:visible;transform:translateY(0);}
+.nav .dropdown a{display:block;padding:8px 20px;font-size:11px;text-transform:none;letter-spacing:.4px;font-weight:600;color:var(--navy);}
+.nav .dropdown a:hover{color:var(--gold);background:#fbf8f1;}
+
+.header-actions{display:flex;align-items:center;gap:14px;flex-shrink:0;}
+.icon-btn{background:none;border:none;cursor:pointer;color:var(--navy);display:flex;align-items:center;justify-content:center;position:relative;padding:6px;border-radius:50%;transition:background .2s,color .2s;}
+.icon-btn:hover{background:#f3f0e8;color:var(--gold-dark);}
+.cart-count{position:absolute;top:0;right:0;background:var(--gold);color:#fff;font-size:9px;font-weight:800;min-width:16px;height:16px;border-radius:9px;display:flex;align-items:center;justify-content:center;padding:0 4px;}
+.hamburger{display:none;}
+
+.mobile-search{padding:10px 0 14px;display:none;}
+.search-field{position:relative;}
+.search-field input{width:100%;padding:12px 16px 12px 42px;border:1px solid var(--line);border-radius:30px;font-family:inherit;font-size:13px;color:var(--navy);background:#faf9f6;outline:none;transition:border .2s;}
+.search-field input:focus{border-color:var(--gold);}
+.search-field svg{position:absolute;left:14px;top:50%;transform:translateY(-50%);color:var(--muted);}
+
+.hero{background:linear-gradient(140deg,var(--navy-deep) 0%,var(--navy) 55%,#123763 100%);color:#fff;position:relative;overflow:hidden;}
+.hero-inner{display:flex;align-items:center;justify-content:space-between;gap:40px;padding:76px 0 110px;position:relative;z-index:2;}
+.hero-text{max-width:540px;}
+.hero h1{font-size:56px;line-height:1.08;font-weight:800;letter-spacing:.5px;text-transform:uppercase;}
+.hero h1 .gold{color:var(--gold);}
+.hero-desc{margin:22px 0 34px;font-size:17px;color:#dbe3f1;max-width:460px;font-weight:400;}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:15px 32px;border-radius:8px;font-family:inherit;font-size:12.5px;font-weight:800;letter-spacing:2px;text-transform:uppercase;cursor:pointer;border:none;transition:transform .2s,box-shadow .2s,background .2s;}
+.btn-gold{background:linear-gradient(135deg,var(--gold-light),var(--gold-dark));color:#fff;box-shadow:0 10px 26px rgba(212,175,55,.4);}
+.btn-gold:hover{transform:translateY(-2px);box-shadow:0 14px 32px rgba(212,175,55,.5);}
+.btn-navy{background:var(--navy);color:#fff;box-shadow:0 8px 20px rgba(8,31,61,.28);}
+.btn-navy:hover{background:var(--navy-deep);transform:translateY(-2px);}
+.hero-logo{width:340px;flex-shrink:0;filter:drop-shadow(0 24px 60px rgba(0,0,0,.35));}
+.hero-logo .logo-slot{width:100%;aspect-ratio:1/1;}
+.hero-waves{position:absolute;left:0;right:0;bottom:0;width:100%;z-index:1;opacity:.9;}
+.hero-waves svg{width:100%;height:auto;}
+
+.section{padding:76px 0;}
+.section-white{background:#fff;}
+.section-tint{background:#faf8f4;}
+.section-title{display:flex;align-items:center;justify-content:center;gap:18px;text-align:center;}
+.section-title h2{font-size:26px;font-weight:800;letter-spacing:3.5px;text-transform:uppercase;}
+.section-title::before,.section-title::after{content:"";height:1px;width:80px;background:linear-gradient(90deg,transparent,var(--gold));}
+.section-title::after{background:linear-gradient(90deg,var(--gold),transparent);}
+.section-sub{text-align:center;color:var(--muted);max-width:560px;margin:14px auto 0;font-size:14px;}
+
+.cat-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:22px;margin-top:46px;}
+.cat-card{border:1px solid var(--beige);border-radius:var(--radius);background:#fff;text-align:center;padding:32px 14px 26px;cursor:pointer;transition:transform .25s,box-shadow .25s,border-color .25s;}
+.cat-card:hover{transform:translateY(-5px);box-shadow:0 20px 44px rgba(8,31,61,.1);border-color:var(--gold);}
+.cat-card:focus-visible{outline:2px solid var(--gold);outline-offset:2px;}
+.cat-icon{width:58px;height:58px;margin:0 auto 16px;color:var(--gold);}
+.cat-card h3{font-size:13px;letter-spacing:1.6px;font-weight:800;text-transform:uppercase;}
+
+.product-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:24px;margin-top:46px;}
+.product-card{border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;background:#fff;display:flex;flex-direction:column;transition:transform .25s,box-shadow .25s,border-color .25s;}
+.product-card:hover{transform:translateY(-5px);box-shadow:0 22px 48px rgba(8,31,61,.12);border-color:var(--beige);}
+.product-img{height:190px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;background:linear-gradient(140deg,#f7f4ee,#eee8dc);color:#c2b18a;text-align:center;padding:16px;}
+.product-img svg{color:var(--gold);opacity:.85;}
+.product-img span{font-size:11px;letter-spacing:1px;text-transform:uppercase;}
+.product-body{padding:18px;display:flex;flex-direction:column;flex:1;}
+.product-body h3{font-size:15px;font-weight:800;text-transform:uppercase;letter-spacing:.3px;}
+.product-desc{font-size:12.5px;color:var(--muted);margin-top:6px;flex:1;}
+.product-price{font-size:16px;font-weight:800;color:var(--navy);margin:12px 0;letter-spacing:.3px;}
+.product-price small{font-size:11px;font-weight:600;color:var(--muted);letter-spacing:0;display:block;margin-top:2px;}
+.btn-add{width:100%;padding:12px;font-size:11.5px;letter-spacing:1.6px;border-radius:7px;}
+.btn-add.added{background:#2e7d4f;}
+.product-brand{font-size:12px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:var(--gold-dark);margin-top:4px;}
+
+.catalog-toolbar{display:flex;flex-direction:column;gap:16px;margin-top:42px;}
+.catalog-search{position:relative;max-width:460px;width:100%;margin:0 auto;}
+.catalog-search input{width:100%;padding:13px 18px 13px 44px;border:1px solid var(--line);border-radius:30px;font-family:inherit;font-size:13.5px;color:var(--navy);background:#faf9f6;outline:none;transition:border .2s,background .2s;}
+.catalog-search input:focus{border-color:var(--gold);background:#fff;}
+.catalog-search svg{position:absolute;left:15px;top:50%;transform:translateY(-50%);color:var(--muted);}
+.catalog-filters{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;}
+.chip{border:1px solid var(--line);background:#fff;color:var(--navy);font-family:inherit;font-size:11px;font-weight:700;letter-spacing:1.1px;text-transform:uppercase;padding:9px 18px;border-radius:30px;cursor:pointer;transition:border-color .2s,color .2s,background .2s;}
+.chip:hover{border-color:var(--gold);color:var(--gold-dark);}
+.chip.active{background:var(--navy);border-color:var(--navy);color:#fff;}
+.chip.active:hover{color:#fff;}
+.catalog-empty{text-align:center;color:var(--muted);padding:50px 0;font-size:14px;grid-column:1/-1;}
+.catalog-toggle-wrap{text-align:center;margin-top:32px;}
+.catalog-toggle{display:inline-flex;align-items:center;gap:10px;padding:15px 32px;border-radius:30px;font-family:inherit;font-size:12.5px;font-weight:800;letter-spacing:1.4px;text-transform:uppercase;cursor:pointer;border:2px solid var(--navy);background:#fff;color:var(--navy);transition:background .25s,color .25s,border-color .25s;}
+.catalog-toggle:hover{background:var(--navy);color:#fff;}
+.catalog-toggle svg{transition:transform .3s;}
+.catalog-toggle.open svg{transform:rotate(180deg);}
+.catalog-toggle-count{display:block;margin-top:12px;font-size:11.5px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:var(--muted);}
+.catalog-panel{display:none;}
+.catalog-panel.open{display:block;}
+.catalog-count-line{text-align:center;font-size:12.5px;color:var(--muted);margin-top:18px;}
+
+.benefit-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:14px;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#fff;}
+.benefit{padding:34px 22px;text-align:center;border-right:1px solid var(--line);}
+.benefit:last-child{border-right:none;}
+.benefit .b-icon{width:46px;height:46px;margin:0 auto 14px;color:var(--gold);}
+.benefit h3{font-size:13.5px;font-weight:800;text-transform:uppercase;letter-spacing:.8px;}
+.benefit p{font-size:12.5px;color:var(--muted);margin-top:8px;}
+
+footer{background:var(--navy-deep);color:#b9c6dc;margin-top:0;}
+.footer-top{padding:70px 0 50px;}
+.footer-grid{display:grid;grid-template-columns:2.2fr 1fr 1fr 1fr 1.3fr;gap:38px;}
+.footer-brand .logo-slot{width:74px;height:74px;margin-bottom:18px;filter:drop-shadow(0 6px 16px rgba(0,0,0,.3));}
+.footer-brand h3{color:#fff;font-size:15px;text-transform:uppercase;letter-spacing:.5px;font-weight:800;}
+.footer-brand h3 span{color:var(--gold);font-size:9.5px;letter-spacing:2.4px;display:block;margin-top:3px;}
+.footer-brand p{font-size:13px;color:#93a2bd;margin-top:14px;max-width:280px;}
+.socials{display:flex;gap:10px;margin-top:20px;}
+.socials a{width:36px;height:36px;border-radius:50%;border:1px solid rgba(212,175,55,.45);color:var(--gold);display:flex;align-items:center;justify-content:center;transition:background .25s,color .25s,transform .25s;}
+.socials a:hover{background:var(--gold);color:var(--navy-deep);transform:translateY(-3px);}
+.footer-col h4{color:#fff;font-size:12px;letter-spacing:2px;text-transform:uppercase;font-weight:800;margin-bottom:18px;display:flex;align-items:center;justify-content:space-between;gap:10px;}
+.footer-col h4 .chev{display:none;}
+.footer-col ul li{margin-bottom:11px;}
+.footer-col ul a{font-size:13px;color:#93a2bd;transition:color .2s,padding-left .2s;}
+.footer-col ul a:hover{color:var(--gold);padding-left:4px;}
+.footer-contact li{display:flex;gap:10px;align-items:flex-start;font-size:13px;color:#93a2bd;margin-bottom:14px;}
+.footer-contact svg{color:var(--gold);flex-shrink:0;margin-top:2px;}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.09);padding:22px 0;font-size:12.5px;color:#7f8fad;text-align:center;}
+
+.wa-float{position:fixed;bottom:22px;right:22px;z-index:80;width:56px;height:56px;border-radius:50%;background:#25d366;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 26px rgba(0,0,0,.28);transition:transform .25s,box-shadow .25s;}
+.wa-float:hover{transform:scale(1.08);box-shadow:0 14px 32px rgba(0,0,0,.34);}
+.wa-float svg{color:#fff;}
+
+.search-overlay{position:fixed;top:0;left:0;right:0;background:#fff;padding:22px 24px;box-shadow:0 20px 50px rgba(8,31,61,.22);z-index:120;transform:translateY(-110%);transition:transform .35s;}
+.search-overlay.open{transform:translateY(0);}
+.search-overlay .inner{max-width:760px;margin:0 auto;display:flex;align-items:center;gap:12px;}
+.search-overlay input{flex:1;padding:14px 18px;border:1px solid var(--line);border-radius:30px;font-family:inherit;font-size:14px;color:var(--navy);outline:none;}
+.search-overlay input:focus{border-color:var(--gold);}
+
+.mobile-nav{position:fixed;inset:0;background:var(--navy-deep);z-index:110;transform:translateX(105%);transition:transform .35s;overflow-y:auto;color:#fff;display:flex;flex-direction:column;padding:24px;}
+.mobile-nav.open{transform:translateX(0);}
+.mobile-nav-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:26px;}
+.mobile-nav-head .logo-slot{width:52px;height:52px;}
+.mobile-nav a.m-link{display:block;padding:14px 0;font-size:12.5px;font-weight:700;letter-spacing:1.6px;text-transform:uppercase;color:#dfe6f2;border-bottom:1px solid rgba(255,255,255,.08);}
+.mobile-nav a.m-link.active{color:var(--gold);}
+.mobile-nav a.m-link:hover{color:var(--gold);}
+.mobile-nav .m-account{display:flex;gap:16px;margin-top:26px;color:var(--gold);font-size:12px;font-weight:700;letter-spacing:1px;text-transform:uppercase;flex-direction:column;}
+
+.account-wrap{position:relative;}
+.account-btn{display:flex;align-items:center;gap:7px;background:none;border:none;color:#fff;font-family:inherit;font-size:12.5px;cursor:pointer;opacity:.92;padding:0;line-height:1.4;}
+.account-btn:hover{opacity:1;}
+.account-btn svg{color:var(--gold);}
+.account-menu{position:absolute;top:calc(100% + 10px);right:0;background:#fff;min-width:210px;border-radius:12px;box-shadow:0 18px 44px rgba(8,31,61,.2);padding:8px 0;color:var(--navy);opacity:0;visibility:hidden;transform:translateY(8px);transition:.25s;z-index:75;}
+.account-wrap.open .account-menu{opacity:1;visibility:visible;transform:translateY(0);}
+.account-menu a,.account-menu button{display:flex;width:100%;text-align:left;align-items:center;gap:10px;padding:10px 16px;font-size:12.5px;font-family:inherit;font-weight:600;color:var(--navy);background:none;border:none;cursor:pointer;}
+.account-menu a:hover,.account-menu button:hover{background:#fbf8f1;color:var(--gold-dark);}
+.account-menu .acc-name{display:block;padding:6px 16px 10px;border-bottom:1px solid var(--line);margin-bottom:6px;font-weight:800;font-size:12.5px;text-transform:uppercase;letter-spacing:.5px;color:var(--navy);}
+.account-menu .acc-name small{display:block;font-weight:600;font-size:11px;color:var(--muted);text-transform:none;letter-spacing:0;margin-top:2px;}
+.account-menu .sep{border-top:1px solid var(--line);margin:6px 0;}
+
+.modal-overlay{position:fixed;inset:0;background:rgba(8,31,61,.62);z-index:140;display:none;align-items:center;justify-content:center;padding:20px;}
+.modal-overlay.open{display:flex;}
+.modal{background:#fff;border-radius:18px;max-width:430px;width:100%;padding:34px;position:relative;max-height:92vh;overflow-y:auto;}
+.modal-close{position:absolute;top:14px;right:14px;background:none;border:none;cursor:pointer;color:var(--navy);display:flex;padding:6px;border-radius:50%;}
+.modal-close:hover{background:#f3f0e8;color:var(--gold-dark);}
+.modal .logo-slot{width:56px;height:56px;margin:0 auto 10px;}
+.modal h3{text-align:center;font-size:18px;font-weight:800;text-transform:uppercase;letter-spacing:1px;}
+.modal .m-sub{text-align:center;color:var(--muted);font-size:12.5px;margin:6px 0 22px;}
+.tabs{display:flex;border-bottom:1px solid var(--line);margin-bottom:22px;}
+.tab{flex:1;padding:12px 0;background:none;border:none;cursor:pointer;font-family:inherit;font-size:12px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);border-bottom:2px solid transparent;transition:color .2s,border-color .2s;}
+.tab.active{color:var(--gold-dark);border-bottom-color:var(--gold);}
+.field{margin-bottom:14px;}
+.field label{display:block;font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--navy);margin-bottom:6px;}
+.field input{width:100%;padding:12px 14px;border:1px solid var(--line);border-radius:9px;font-family:inherit;font-size:13.5px;color:var(--navy);outline:none;background:#faf9f6;transition:border .2s;}
+.field input:focus{border-color:var(--gold);background:#fff;}
+.form-msg{display:none;padding:11px 14px;border-radius:8px;font-size:12.5px;margin-bottom:16px;}
+.form-msg.show{display:block;}
+.form-msg.error{background:#fdecec;color:#b3261e;border:1px solid #f5c2c0;}
+.form-msg.ok{background:#eaf7ef;color:#1e7a45;border:1px solid #bfe6cd;}
+.btn-block{width:100%;}
+.modal-foot{text-align:center;font-size:12.5px;color:var(--muted);margin-top:16px;}
+.modal-foot button{background:none;border:none;cursor:pointer;color:var(--gold-dark);font-weight:800;font-family:inherit;font-size:12.5px;text-transform:uppercase;letter-spacing:.5px;}
+.modal-foot button:hover{text-decoration:underline;}
+
+.modal-product{max-width:760px;padding:26px;}
+.product-detail{display:grid;grid-template-columns:280px 1fr;gap:26px;align-items:start;}
+.product-detail-img{height:280px;display:flex;align-items:center;justify-content:center;background:linear-gradient(140deg,#f7f4ee,#eee8dc);border-radius:14px;overflow:hidden;color:#c2b18a;text-align:center;padding:16px;}
+.product-detail-img svg{color:var(--gold);opacity:.85;}
+.product-detail-brand{font-size:12px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:var(--gold-dark);}
+.product-detail h3{text-align:left;font-size:22px;font-weight:800;text-transform:uppercase;letter-spacing:.4px;line-height:1.2;margin:6px 0 4px;}
+.product-detail-cat{font-size:11.5px;font-weight:700;text-transform:uppercase;letter-spacing:1.4px;color:var(--muted);}
+.product-detail-price{font-size:24px;font-weight:800;color:var(--navy);margin:16px 0 8px;}
+.product-detail-price small{font-size:11.5px;font-weight:600;color:var(--muted);display:block;margin-top:2px;}
+.product-detail-desc{font-size:13.5px;color:var(--muted);margin-bottom:18px;}
+.product-detail-avail{display:flex;align-items:center;gap:8px;font-size:12.5px;font-weight:700;color:#2e7d4f;margin-bottom:18px;}
+.product-detail-avail.out{color:#b3261e;}
+.product-detail-actions{display:flex;flex-direction:column;gap:10px;}
+.product-detail-actions .btn{width:100%;}
+
+.cart-overlay{position:fixed;inset:0;background:rgba(8,31,61,.62);z-index:150;display:none;}
+.cart-overlay.open{display:block;}
+.cart-drawer{position:fixed;top:0;right:0;bottom:0;width:min(420px,100%);background:#fff;z-index:160;transform:translateX(100%);transition:transform .3s ease;display:flex;flex-direction:column;box-shadow:-18px 0 50px rgba(8,31,61,.18);}
+.cart-drawer.open{transform:translateX(0);}
+.cart-head{display:flex;align-items:center;justify-content:space-between;padding:20px 22px;border-bottom:1px solid var(--line);}
+.cart-head h3{font-size:15px;font-weight:800;text-transform:uppercase;letter-spacing:1px;color:var(--navy);}
+.cart-head button{background:none;border:none;cursor:pointer;color:var(--navy);display:flex;padding:6px;border-radius:50%;}
+.cart-head button:hover{background:#f3f0e8;color:var(--gold-dark);}
+.cart-items{flex:1;overflow-y:auto;padding:6px 22px;}
+.cart-empty{text-align:center;color:var(--muted);font-size:13.5px;padding:60px 10px;line-height:1.6;}
+.cart-item{display:flex;gap:12px;padding:16px 0;border-bottom:1px solid var(--line);align-items:center;}
+.cart-item-img{width:58px;height:58px;border-radius:10px;background:linear-gradient(140deg,#f7f4ee,#eee8dc);flex:none;display:flex;align-items:center;justify-content:center;color:#c2b18a;overflow:hidden;}
+.cart-item-img img{width:100%;height:100%;object-fit:contain;}
+.cart-item-info{flex:1;min-width:0;}
+.cart-item-name{font-size:12.5px;font-weight:800;text-transform:uppercase;letter-spacing:.3px;line-height:1.25;color:var(--navy);}
+.cart-item-meta{font-size:11px;color:var(--muted);margin-top:3px;}
+.cart-qty{display:inline-flex;align-items:center;gap:10px;border:1px solid var(--line);border-radius:20px;padding:3px 10px;margin-top:8px;}
+.cart-qty button{background:none;border:none;cursor:pointer;color:var(--navy);font-weight:800;font-size:14px;line-height:1;}
+.cart-qty button:hover{color:var(--gold-dark);}
+.cart-qty span{font-size:12.5px;font-weight:800;min-width:14px;text-align:center;}
+.cart-item-del{background:none;border:none;cursor:pointer;color:var(--muted);display:flex;padding:6px;flex:none;}
+.cart-item-del:hover{color:#b3261e;}
+.cart-foot{padding:18px 22px 22px;border-top:1px solid var(--line);}
+.cart-total{display:flex;justify-content:space-between;align-items:center;font-size:14px;font-weight:800;color:var(--navy);margin-bottom:6px;}
+.cart-total small{font-weight:600;color:var(--muted);font-size:11px;display:block;margin-top:2px;}
+.cart-note{font-size:11.5px;color:var(--muted);margin-bottom:12px;}
+.cart-foot .btn{width:100%;margin-top:8px;}
+@media (max-width:640px){
+  .product-detail{grid-template-columns:1fr;}
+  .product-detail-img{height:220px;}
+}
+
+@media(max-width:1180px){
+  .nav ul{gap:14px;}
+  .nav a{font-size:10.5px;letter-spacing:.8px;}
+}
+@media(max-width:1024px){
+  .nav{display:none;}
+  .hamburger{display:flex;}
+  .mobile-search{display:block;}
+  .hero h1{font-size:44px;}
+  .hero-logo{width:280px;}
+  .cat-grid{grid-template-columns:repeat(5,minmax(130px,1fr));gap:14px;overflow-x:auto;padding-bottom:8px;}
+  .product-grid{grid-template-columns:repeat(2,1fr);}
+  .footer-grid{grid-template-columns:1fr 1fr;gap:34px;}
+}
+@media(max-width:760px){
+  .topbar-center{display:none;}
+  .topbar-group{gap:14px;}
+  .container{padding:0 18px;}
+  .section{padding:56px 0;}
+  .hero-inner{padding:60px 0 70px;position:relative;flex-direction:column;align-items:stretch;}
+  .hero-logo{position:absolute;top:8px;right:0;width:96px;}
+  .hero-text{padding-top:92px;max-width:100%;}
+  .hero h1{font-size:34px;}
+  .hero-desc{font-size:15px;}
+  .cat-grid{grid-template-columns:repeat(5,minmax(108px,1fr));gap:10px;margin-top:32px;}
+  .cat-card{padding:18px 8px 14px;}
+  .cat-icon{width:44px;height:44px;margin-bottom:10px;}
+  .cat-card h3{font-size:9.5px;letter-spacing:.8px;}
+  .product-grid{grid-template-columns:1fr;gap:16px;margin-top:32px;}
+  .product-card{flex-direction:row;}
+  .product-img{width:132px;height:auto;min-height:150px;flex-shrink:0;border-right:1px solid var(--line);}
+  .product-body{padding:14px;}
+  .benefit-grid{grid-template-columns:repeat(4,1fr);border:none;}
+  .benefit{border-right:none;padding:18px 6px;}
+  .benefit .b-icon{width:34px;height:34px;margin-bottom:8px;}
+  .benefit h3{font-size:9.5px;letter-spacing:.4px;}
+  .benefit p{display:none;}
+  .footer-grid{grid-template-columns:1fr;gap:6px;}
+  .footer-col{padding:8px 0;border-bottom:1px solid rgba(255,255,255,.08);}
+  .footer-col h4{cursor:pointer;margin-bottom:10px;user-select:none;}
+  .footer-col h4 .chev{display:flex;transition:transform .25s;}
+  .footer-col.open h4 .chev{transform:rotate(180deg);}
+  .footer-col .f-links{display:none;}
+  .footer-col.open .f-links{display:block;}
+  .footer-brand .f-links{display:block;padding-bottom:10px;}
+  .section-title h2{font-size:19px;letter-spacing:2.5px;}
+  .section-title::before,.section-title::after{width:40px;}
+}
+@media(max-width:420px){
+  .brand-name{display:none;}
+}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="container topbar-inner">
+    <div class="topbar-group">
+      <span class="topbar-item">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7h11v9H3z"/><path d="M14 10h4l3 3v3h-7z"/><circle cx="7" cy="17" r="1.6"/><circle cx="17" cy="17" r="1.6"/></svg>
+        Envíos a todo el país
+      </span>
+    </div>
+    <div class="topbar-center">
+      <span class="dot">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 14v-3a8 8 0 0 1 16 0v3"/><rect x="3" y="14" width="4" height="5" rx="1.2"/><rect x="17" y="14" width="4" height="5" rx="1.2"/><path d="M19 19v1a2 2 0 0 1-2 2h-3"/></svg>
+      </span>
+      Atención personalizada
+    </div>
+    <div class="topbar-group">
+      <span class="account-wrap" id="accountWrap">
+        <button class="account-btn" id="accountTrigger" type="button">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.5"/><path d="M5 20c1.5-3.5 4-5 7-5s5.5 1.5 7 5"/></svg>
+          <span id="accountLabel">Mi cuenta</span>
+          <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="m6 9 6 6 6-6"/></svg>
+        </button>
+        <div class="account-menu" id="accountMenu">
+          <span class="acc-name" id="accName" style="display:none">Hola<small id="accEmail"></small></span>
+          <a href="#" id="menuMyAccount" style="display:none">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="8" r="3.5"/><path d="M5 20c1.5-3.5 4-5 7-5s5.5 1.5 7 5"/></svg>
+            Mi cuenta
+          </a>
+          <a href="#" id="menuMyOrders" style="display:none">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 4h2l2.5 12h10L21 7H6"/><circle cx="9.5" cy="20" r="1.4"/><circle cx="16.5" cy="20" r="1.4"/></svg>
+            Mis pedidos
+          </a>
+          <span class="sep" id="menuSep" style="display:none"></span>
+          <button type="button" id="menuLogout" style="display:none">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><path d="m16 17 5-5-5-5"/><path d="M21 12H9"/></svg>
+            Cerrar sesión
+          </button>
+        </div>
+      </span>
+      <button class="topbar-item topbar-cart" id="cartOpenTop" type="button">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 4h2l2.5 12h10L21 7H6"/><circle cx="9.5" cy="20" r="1.4"/><circle cx="16.5" cy="20" r="1.4"/></svg>
+        Carrito (<span id="cartTopCount">0</span>)
+      </button>
+    </div>
+  </div>
+</div>
+
+<header class="header">
+  <div class="container">
+    <div class="header-inner">
+      <div class="brand">
+        <div class="logo-slot" data-logo></div>
+        <div class="brand-name">Rizos, Lisos y Colores<span>TU ALIADO EN CADA ESTILO</span></div>
+      </div>
+      <nav class="nav">
+        <ul>
+          <li><a href="#inicio" class="active">Inicio</a></li>
+          <li class="has-sub"><a href="#catalogo" data-cat="Cabello Rizado">Cabello Rizado</a>
+            <div class="dropdown">
+              <a href="#" data-cat="Cabello Rizado">Cremas y definidores</a>
+              <a href="#" data-cat="Cabello Rizado">Geles y mousses</a>
+              <a href="#" data-cat="Cabello Rizado">Acondicionadores</a>
+            </div>
+          </li>
+          <li class="has-sub"><a href="#catalogo" data-cat="Cabello Liso">Cabello Liso</a>
+            <div class="dropdown">
+              <a href="#" data-cat="Cabello Liso">Shampoos</a>
+              <a href="#" data-cat="Cabello Liso">Serums y aceites</a>
+              <a href="#" data-cat="Cabello Liso">Tratamientos</a>
+            </div>
+          </li>
+          <li class="has-sub"><a href="#catalogo" data-cat="Coloración">Coloración</a>
+            <div class="dropdown">
+              <a href="#" data-cat="Coloración">Tintes permanentes</a>
+              <a href="#" data-cat="Coloración">Kits de color</a>
+              <a href="#" data-cat="Coloración">Protectores de color</a>
+            </div>
+          </li>
+          <li class="has-sub"><a href="#catalogo" data-cat="Accesorios">Accesorios</a>
+            <div class="dropdown">
+              <a href="#" data-cat="Accesorios">Peines y cepillos</a>
+              <a href="#" data-cat="Accesorios">Toallas de microfibra</a>
+              <a href="#" data-cat="Accesorios">Ganchos y pinzas</a>
+            </div>
+          </li>
+          <li class="has-sub"><a href="#catalogo" data-cat="Marcas">Marcas</a>
+            <div class="dropdown">
+              <a href="#" data-cat="Marcas">Marcas aliadas</a>
+              <a href="#" data-cat="Marcas">Novedades</a>
+            </div>
+          </li>
+          <li><a href="#beneficios">Nosotros</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+        </ul>
+      </nav>
+      <div class="header-actions">
+        <button class="icon-btn" id="searchToggle" aria-label="Buscar">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="6.5"/><path d="m20 20-4.5-4.5"/></svg>
+        </button>
+        <button class="icon-btn hamburger" id="menuToggle" aria-label="Menú">
+          <svg id="menuIconOpen" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+          <svg id="menuIconClose" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="display:none"><path d="m6 6 12 12M18 6 6 18"/></svg>
+        </button>
+      </div>
+    </div>
+    <div class="mobile-search">
+      <div class="search-field">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="6.5"/><path d="m20 20-4.5-4.5"/></svg>
+        <input type="text" id="mobileSearchInput" placeholder="Buscar productos...">
+      </div>
+    </div>
+  </div>
+</header>
+
+<section class="hero" id="inicio">
+  <div class="container">
+    <div class="hero-inner">
+      <div class="hero-text">
+        <h1>Tu aliado en<br><span class="gold">cada estilo</span></h1>
+        <p class="hero-desc">Encuentra todo lo que tu cabello necesita para lucir como quieres.</p>
+        <a href="#productos" class="btn btn-gold">Explorar productos</a>
+      </div>
+      <div class="hero-logo">
+        <div class="logo-slot" data-logo></div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-waves" aria-hidden="true">
+    <svg viewBox="0 0 1440 200" preserveAspectRatio="none" fill="none">
+      <path d="M0,120 C180,60 360,180 540,140 C720,100 900,60 1080,120 C1200,160 1320,150 1440,110 L1440,200 L0,200 Z" fill="rgba(212,175,55,0.16)"/>
+      <path d="M0,150 C200,100 380,190 560,160 C760,125 940,120 1140,155 C1260,175 1360,165 1440,140 L1440,200 L0,200 Z" fill="rgba(255,255,255,0.06)"/>
+      <path d="M0,175 C220,140 400,205 620,185 C860,160 1060,180 1440,150 L1440,200 L0,200 Z" fill="rgba(14,47,87,0.55)"/>
+    </svg>
+  </div>
+</section>
+
+<section class="section section-white" id="categorias">
+  <div class="container">
+    <div class="section-title"><h2>Categorías</h2></div>
+    <div class="cat-grid">
+      <div class="cat-card" data-cat="Cabello Rizado" tabindex="0">
+        <svg class="cat-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M7 8c3 1.5 4.5 4.5 3.8 7.5C10 19 14 20.5 14 24.5c0 3-3 6-6 7.5"/><path d="M19 8c3 1.5 4.5 4.5 3.8 7.5C22 19 26 20.5 26 24.5c0 3-3 6-6 7.5"/><path d="M31 8c3 1.5 4.5 4.5 3.8 7.5C34 19 38 20.5 38 24.5c0 3-3 6-6 7.5"/></svg>
+        <h3>Cabello Rizado</h3>
+      </div>
+      <div class="cat-card" data-cat="Cabello Liso" tabindex="0">
+        <svg class="cat-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M7 8c2 6 2 12 0 32"/><path d="M19 8c2 6 2 12 0 32"/><path d="M31 8c2 6 2 12 0 32"/><path d="M41 8v32"/></svg>
+        <h3>Cabello Liso</h3>
+      </div>
+      <div class="cat-card" data-cat="Coloración" tabindex="0">
+        <svg class="cat-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h24v16a4 4 0 0 1-4 4H16a4 4 0 0 1-4-4z"/><path d="M12 20l3-8h18l3 8"/><path d="M18 26h12M18 31h12"/></svg>
+        <h3>Coloración</h3>
+      </div>
+      <div class="cat-card" data-cat="Accesorios" tabindex="0">
+        <svg class="cat-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="17" width="38" height="9" rx="3"/><path d="M13 26v11M24 26v11M35 26v11"/></svg>
+        <h3>Accesorios</h3>
+      </div>
+      <div class="cat-card">
+        <svg class="cat-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m24 5 5.4 11 12 .9-8.6 8.4 2 12-10.8-5.8L13.2 37l2-12L6.6 17l12-.9z"/></svg>
+        <h3>Marcas</h3>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-tint" id="productos">
+  <div class="container">
+    <div class="section-title"><h2>Productos Destacados</h2></div>
+    <p class="section-sub">Estamos preparando nuestro catálogo completo, con más de 600 productos disponibles.</p>
+    <div class="product-grid">
+      <div class="product-card" data-sku="7898952516112">
+        <div class="product-img">
+          <svg width="46" height="46" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M24 5 9 18h6l-5 18c-1 3 1 5 4 5h20c3 0 5-2 4-5l-5-18h6z"/><path d="M20 5h8l-2 8h-4z"/></svg>
+          <span>Imagen de producto</span>
+        </div>
+        <div class="product-body">
+          <h3>BOTOX VIOLET ARGAN MASCARA 550 G</h3>
+          <p class="product-desc">Descripción pendiente</p>
+          <div class="product-price">Precio por definir<small>Cada producto pronto disponible</small></div>
+          <button class="btn btn-navy btn-add" data-add>Agregar al carrito</button>
+        </div>
+      </div>
+      <div class="product-card" data-sku="8051566440931">
+        <div class="product-img">
+          <svg width="46" height="46" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M24 5 9 18h6l-5 18c-1 3 1 5 4 5h20c3 0 5-2 4-5l-5-18h6z"/><path d="M20 5h8l-2 8h-4z"/></svg>
+          <span>Imagen de producto</span>
+        </div>
+        <div class="product-body">
+          <h3>COLORTRIBE FLAMINGO</h3>
+          <p class="product-desc">Descripción pendiente</p>
+          <div class="product-price">Precio por definir<small>Cada producto pronto disponible</small></div>
+          <button class="btn btn-navy btn-add" data-add>Agregar al carrito</button>
+        </div>
+      </div>
+      <div class="product-card" data-sku="6323956010683">
+        <div class="product-img">
+          <svg width="46" height="46" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M24 5 9 18h6l-5 18c-1 3 1 5 4 5h20c3 0 5-2 4-5l-5-18h6z"/><path d="M20 5h8l-2 8h-4z"/></svg>
+          <span>Imagen de producto</span>
+        </div>
+        <div class="product-body">
+          <h3>Balsamo para rizos Reania 500 ml</h3>
+          <p class="product-desc">Descripción pendiente</p>
+          <div class="product-price">Precio por definir<small>Cada producto pronto disponible</small></div>
+          <button class="btn btn-navy btn-add" data-add>Agregar al carrito</button>
+        </div>
+      </div>
+      <div class="product-card" data-sku="8682225550311">
+        <div class="product-img">
+          <svg width="46" height="46" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M24 5 9 18h6l-5 18c-1 3 1 5 4 5h20c3 0 5-2 4-5l-5-18h6z"/><path d="M20 5h8l-2 8h-4z"/></svg>
+          <span>Imagen de producto</span>
+        </div>
+        <div class="product-body">
+          <h3>CERA IMMORTAL NYC POMADE THE CREED 150ML</h3>
+          <p class="product-desc">Descripción pendiente</p>
+          <div class="product-price">Precio por definir<small>Cada producto pronto disponible</small></div>
+          <button class="btn btn-navy btn-add" data-add>Agregar al carrito</button>
+        </div>
+      </div>
+      <div class="product-card" data-sku="MECHAS-BLANCAS-001">
+        <div class="product-img">
+          <svg width="46" height="46" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M24 5 9 18h6l-5 18c-1 3 1 5 4 5h20c3 0 5-2 4-5l-5-18h6z"/><path d="M20 5h8l-2 8h-4z"/></svg>
+          <span>Imagen de producto proporcionada</span>
+        </div>
+        <div class="product-body">
+          <h3>White Meches</h3>
+          <p class="product-desc">Descripción pendiente</p>
+          <div class="product-price">Precio por definir<small>Cada producto pronto disponible</small></div>
+          <button class="btn btn-navy btn-add" data-add>Agregar al carrito</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-white" id="catalogo">
+  <div class="container">
+    <div class="section-title"><h2>Catálogo completo</h2></div>
+    <p class="section-sub">Más de 600 productos para el cuidado, la coloración y el bienestar de tu cabello.</p>
+    <div class="catalog-toggle-wrap">
+      <button type="button" class="catalog-toggle" id="catalogToggle" aria-expanded="false">
+        <span id="catalogToggleLabel">Ver catálogo completo</span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="m6 9 6 6 6-6"/></svg>
+      </button>
+      <span class="catalog-toggle-count">639 productos</span>
+    </div>
+    <div class="catalog-panel" id="catalogPanel">
+      <div class="catalog-toolbar">
+        <div class="catalog-search">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="6.5"/><path d="m20 20-4.5-4.5"/></svg>
+          <input type="text" id="catalogSearchInput" placeholder="Buscar producto..." aria-label="Buscar producto">
+        </div>
+        <div class="catalog-filters" id="catalogFilters"></div>
+      </div>
+      <p class="catalog-count-line" id="catalogCount">Mostrando todos nuestros productos disponibles.</p>
+      <div class="product-grid" id="catalogGrid"></div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-white" id="beneficios">
+  <div class="container">
+    <div class="benefit-grid">
+      <div class="benefit">
+        <svg class="b-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 15h22v18H5z"/><path d="M27 21h8l6 6v6h-14z"/><circle cx="13" cy="34" r="3.2"/><circle cx="33" cy="34" r="3.2"/></svg>
+        <h3>Envíos a todo el país</h3>
+        <p>Llevamos tus productos a donde estés.</p>
+      </div>
+      <div class="benefit">
+        <svg class="b-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M24 4 40 10v13c0 9-7 15-16 17-9-2-16-8-16-17V10z"/><path d="m17 24 5 5 9-10"/></svg>
+        <h3>Compra segura</h3>
+        <p>Tus datos y pagos siempre protegidos.</p>
+      </div>
+      <div class="benefit">
+        <svg class="b-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 27v-5a16 16 0 0 1 32 0v5"/><rect x="5" y="27" width="8" height="10" rx="2.4"/><rect x="35" y="27" width="8" height="10" rx="2.4"/><path d="M38 37v3a4 4 0 0 1-4 4h-7"/></svg>
+        <h3>Atención personalizada</h3>
+        <p>Estamos para ayudarte en cada paso.</p>
+      </div>
+      <div class="benefit">
+        <svg class="b-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="24" cy="17" r="10"/><path d="m17 26.5-2.5 15L24 36l9.5 5.5L31 26.5"/></svg>
+        <h3>Productos para cada estilo</h3>
+        <p>Seleccionamos lo mejor para tu cabello.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer id="contacto">
+  <div class="footer-top container footer-grid">
+    <div class="footer-col footer-brand">
+      <div class="logo-slot" data-logo></div>
+      <h3>Rizos, Lisos y Colores<span>TU ALIADO EN CADA ESTILO</span></h3>
+      <p>Productos seleccionados para el cuidado, la coloración y el bienestar de tu cabello.</p>
+      <div class="socials">
+        <a href="#" aria-label="Instagram">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1.2" fill="currentColor" stroke="none"/></svg>
+        </a>
+        <a href="#" aria-label="Facebook">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h-2a4 4 0 0 0-4 4v3H7v4h2v7h4v-7h3l1-4h-4V7a1 1 0 0 1 1-1h2z"/></svg>
+        </a>
+        <a href="#" aria-label="WhatsApp">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a8 8 0 0 1-8 8H4l2.3-2.3A8 8 0 1 1 21 12z"/><path d="M9 9.5c.4-1 1.2-1.2 1.7-.6l.8 1.2c.2.3-.1.9-.5 1.2-.3.3-.2.6.1 1 .5.6 1.1 1.1 1.7 1.6.4.3.7.3 1 .1.3-.4.9-.8 1.2-.5l1.2.8c.5.5.2 1.3-.8 1.6-1 .4-2 .3-3.2-.7A8 8 0 0 1 8.5 12c-1-1.2-1.1-2.2-.7-3.2.3-.6.7-1.2 1.2-1.8.4-.4.9-.2 1.2.1.3.3 1.2.8 1.5 1.1.3.3.4.7.1 1.1-.3.3-.8 1-.5 1.2.5.7 1.3 1.4 2.1 1.9.5.3.9.2 1.1-.1.3-.4.7-.9 1-.9"/></svg>
+        </a>
+        <a href="#" aria-label="TikTok">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 4a4 4 0 0 0 3.5 3.9v2.3a6.5 6.5 0 0 1-3.5-1v5.3a5.5 5.5 0 1 1-5.5-5.5c.3 0 .6 0 .9.1v2.4a3 3 0 1 0 2.1 2.9V4z"/></svg>
+        </a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Navegación <span class="chev">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="m6 9 6 6 6-6"/></svg>
+      </span></h4>
+      <ul class="f-links">
+        <li><a href="#inicio">Inicio</a></li>
+        <li><a href="#categorias">Cuidado Capilar</a></li>
+        <li><a href="#catalogo" data-cat="Coloración">Coloración</a></li>
+        <li><a href="#catalogo" data-cat="Accesorios">Accesorios</a></li>
+        <li><a href="#catalogo" data-cat="Marcas">Marcas</a></li>
+        <li><a href="#beneficios">Nosotros</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Ayuda <span class="chev">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="m6 9 6 6 6-6"/></svg>
+      </span></h4>
+      <ul class="f-links">
+        <li><a href="#">Preguntas frecuentes</a></li>
+        <li><a href="#">Envíos y entregas</a></li>
+        <li><a href="#">Cambios y devoluciones</a></li>
+        <li><a href="#">Términos y condiciones</a></li>
+        <li><a href="#">Política de privacidad</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Mi cuenta <span class="chev">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="m6 9 6 6 6-6"/></svg>
+      </span></h4>
+      <ul class="f-links">
+        <li><a href="#" data-account>Mi cuenta</a></li>
+        <li><a href="#" data-account>Mis pedidos</a></li>
+        <li><a href="#" data-account>Lista de deseos</a></li>
+        <li><a href="#" data-account>Direcciones</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contacto <span class="chev">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="m6 9 6 6 6-6"/></svg>
+      </span></h4>
+      <ul class="f-links footer-contact">
+        <li>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 7 8 6 8-6"/></svg>
+          rizoslisosycolores@gmail.com
+        </li>
+        <li>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h4l1.5 4.5-2 1.5a12 12 0 0 0 5.5 5.5l1.5-2L20 15v4a2 2 0 0 1-2 2A14 14 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg>
+          +56 9 2717 2138 (WhatsApp)
+        </li>
+        <li>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-5.5 7-11a7 7 0 1 0-14 0c0 5.5 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
+          Av. Ejército Libertador 389, Santiago Centro
+        </li>
+        <li>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+          L–V 10:30–19:00 · Sáb 10:30–15:00
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="container">© 2026 Rizos, Lisos y Colores. Todos los derechos reservados.</div>
+  </div>
+</footer>
+
+<a class="wa-float" href="https://wa.me/56927172138" target="_blank" rel="noopener" aria-label="WhatsApp">
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38c1.45.79 3.08 1.21 4.79 1.21h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2zm5.83 14.12c-.25.7-1.45 1.33-2.03 1.42-.52.08-1.17.11-1.89-.12-.44-.14-1-.32-1.71-.63-3.01-1.3-4.98-4.33-5.13-4.53-.15-.2-1.22-1.63-1.22-3.11 0-1.48.77-2.2 1.05-2.51.27-.3.6-.38.8-.38h.57c.19 0 .43-.03.67.52.25.56.84 2.06.91 2.21.08.15.13.33.03.53-.1.2-.15.32-.3.5-.15.17-.32.39-.45.52-.15.15-.31.31-.13.61.18.3.79 1.3 1.69 2.11 1.16 1.04 2.13 1.36 2.44 1.52.31.15.48.13.66-.08.18-.2.76-.89.96-1.19.2-.3.4-.25.67-.15.28.1 1.75.83 2.05.98.3.15.5.22.57.35.08.13.08.74-.17 1.44z"/></svg>
+</a>
+
+<div class="search-overlay" id="searchOverlay">
+  <div class="inner">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--navy)" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="6.5"/><path d="m20 20-4.5-4.5"/></svg>
+    <input type="text" id="headerSearchInput" placeholder="Buscar productos..." aria-label="Buscar">
+    <button class="btn btn-navy" id="searchClose" style="padding:10px 20px;font-size:11px;">Cerrar</button>
+  </div>
+</div>
+
+<div class="mobile-nav" id="mobileNav">
+  <div class="mobile-nav-head">
+    <div class="logo-slot" data-logo></div>
+    <button class="icon-btn" id="menuCloseBtn" style="color:#fff" aria-label="Cerrar menú">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="m6 6 12 12M18 6 6 18"/></svg>
+    </button>
+  </div>
+  <a class="m-link active" href="#inicio">Inicio</a>
+  <a class="m-link" href="#catalogo" data-cat="Cabello Rizado">Cabello Rizado</a>
+  <a class="m-link" href="#catalogo" data-cat="Cabello Liso">Cabello Liso</a>
+  <a class="m-link" href="#catalogo" data-cat="Coloración">Coloración</a>
+  <a class="m-link" href="#catalogo" data-cat="Accesorios">Accesorios</a>
+  <a class="m-link" href="#catalogo" data-cat="Marcas">Marcas</a>
+  <a class="m-link" href="#beneficios">Nosotros</a>
+  <a class="m-link" href="#contacto">Contacto</a>
+  <div class="m-account">
+    <a href="#" id="mAccountLink">Mi cuenta</a>
+    <a href="#" id="mLogoutLink" style="display:none">Cerrar sesión</a>
+    <a href="#" id="mCartLink">Carrito (<span id="cartMobileCount">0</span>)</a>
+  </div>
+</div>
+
+<div class="cart-overlay" id="cartOverlay"></div>
+<aside class="cart-drawer" id="cartDrawer" aria-label="Carrito de compras">
+  <div class="cart-head">
+    <h3>Tu carrito</h3>
+    <button type="button" id="cartClose" aria-label="Cerrar carrito">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="m6 6 12 12M18 6 6 18"/></svg>
+    </button>
+  </div>
+  <div class="cart-items" id="cartItems">
+    <p class="cart-empty">Tu carrito está vacío.<br>Explora el catálogo y agrega tus favoritos.</p>
+  </div>
+  <div class="cart-foot" id="cartFoot" style="display:none">
+    <div class="cart-total">
+      <span>Total a confirmar</span>
+      <small>El precio se confirma al hacer el pedido</small>
+    </div>
+    <p class="cart-note">Tu pedido se envía por WhatsApp y lo confirmamos contigo.</p>
+    <button class="btn btn-gold" id="cartCheckout" type="button">Confirmar pedido por WhatsApp</button>
+    <button class="btn btn-navy" id="cartContinue" type="button">Seguir comprando</button>
+  </div>
+</aside>
+
+<div class="modal-overlay" id="productModal" data-sku="">
+  <div class="modal modal-product">
+    <button class="modal-close" id="productModalClose" type="button" aria-label="Cerrar">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="m6 6 12 12M18 6 6 18"/></svg>
+    </button>
+    <div class="product-detail">
+      <div class="product-detail-img">
+        <svg width="58" height="58" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M24 5 9 18h6l-5 18c-1 3 1 5 4 5h20c3 0 5-2 4-5l-5-18h6z"/><path d="M20 5h8l-2 8h-4z"/></svg>
+        <span>Imagen de producto</span>
+      </div>
+      <div>
+        <p class="product-detail-brand" id="pBrand"></p>
+        <h3 id="pName"></h3>
+        <p class="product-detail-cat" id="pCat"></p>
+        <div class="product-detail-price" id="pPrice">Precio por definir<small>Cada producto pronto disponible</small></div>
+        <p class="product-detail-desc" id="pDesc">Descripción pendiente</p>
+        <p class="product-detail-avail" id="pAvail"></p>
+        <div class="product-detail-actions">
+          <button class="btn btn-navy btn-add" id="pAdd">Agregar al carrito</button>
+          <a class="btn btn-gold" id="pWhatsapp" target="_blank" rel="noopener">Consultar por WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="authModal">
+  <div class="modal">
+    <button class="modal-close" id="authClose" type="button" aria-label="Cerrar">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="m6 6 12 12M18 6 6 18"/></svg>
+    </button>
+    <div class="logo-slot" data-logo></div>
+    <h3 id="authTitle">Crear cuenta</h3>
+    <p class="m-sub" id="authSub">Únete a Rizos, Lisos y Colores</p>
+    <div class="tabs">
+      <button class="tab" id="tabLogin" type="button">Iniciar sesión</button>
+      <button class="tab active" id="tabRegister" type="button">Crear cuenta</button>
+    </div>
+    <div class="form-msg" id="authMsg"></div>
+    <form id="registerForm">
+      <div class="field">
+        <label for="regName">Nombre completo</label>
+        <input type="text" id="regName" placeholder="Tu nombre" autocomplete="name">
+      </div>
+      <div class="field">
+        <label for="regEmail">Correo electrónico</label>
+        <input type="email" id="regEmail" placeholder="tucorreo@ejemplo.com" autocomplete="email">
+      </div>
+      <div class="field">
+        <label for="regPass">Contraseña</label>
+        <input type="password" id="regPass" placeholder="Mínimo 6 caracteres" autocomplete="new-password">
+      </div>
+      <div class="field">
+        <label for="regPass2">Confirmar contraseña</label>
+        <input type="password" id="regPass2" placeholder="Repite tu contraseña" autocomplete="new-password">
+      </div>
+      <button class="btn btn-gold btn-block" type="submit">Crear cuenta</button>
+    </form>
+    <form id="loginForm" style="display:none">
+      <div class="field">
+        <label for="loginEmail">Correo electrónico</label>
+        <input type="email" id="loginEmail" placeholder="tucorreo@ejemplo.com" autocomplete="email">
+      </div>
+      <div class="field">
+        <label for="loginPass">Contraseña</label>
+        <input type="password" id="loginPass" placeholder="Tu contraseña" autocomplete="current-password">
+      </div>
+      <button class="btn btn-gold btn-block" type="submit">Iniciar sesión</button>
+    </form>
+    <p class="modal-foot" id="modalFoot">
+      ¿Ya tienes cuenta? <button type="button" id="footSwitch">Iniciar sesión</button>
+    </p>
+  </div>
+</div>
+
+<script src="catalogo.js"></script>
+<script>
+const LOGO_SVG = `
+<img src="logo.png" alt="Logo Rizos, Lisos y Colores"
+     style="width:100%;height:100%;object-fit:cover;border-radius:50%;">`;
+
+document.querySelectorAll('[data-logo]').forEach(function(el){
+  el.innerHTML = LOGO_SVG;
+});
+
+const PRODUCT_IMG_EXTS = ['.jpg', '.jpeg', '.png', '.webp'];
+function esc(s){
+  return String(s)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;');
+}
+function attachProductImage(card){
+  var sku = card.getAttribute('data-sku');
+  var imgBox = card.querySelector('.product-img, .product-detail-img, .cart-item-img');
+  if(!sku || !imgBox) return;
+  function tryLoad(i){
+    if(i >= PRODUCT_IMG_EXTS.length) return;
+    var img = new Image();
+    img.onload = function(){
+      imgBox.innerHTML = '';
+      img.style.cssText = 'width:100%;height:100%;object-fit:contain;';
+      imgBox.appendChild(img);
+    };
+    img.onerror = function(){ tryLoad(i + 1); };
+    img.src = 'images/productos/' + sku + PRODUCT_IMG_EXTS[i];
+  }
+  tryLoad(0);
+}
+document.querySelectorAll('.product-card[data-sku]').forEach(attachProductImage);
+
+function bindAddButtons(scope){
+  (scope || document).querySelectorAll('[data-add]').forEach(function(btn){
+    if(btn.dataset.bound) return;
+    btn.dataset.bound = '1';
+    btn.addEventListener('click', function(e){
+      e.stopPropagation();
+      var card = btn.closest('.product-card');
+      var sku = card ? card.getAttribute('data-sku') : null;
+      if(sku) addToCart(sku);
+      btn.classList.add('added');
+      var original = btn.textContent;
+      btn.textContent = '¡Agregado!';
+      setTimeout(function(){
+        btn.classList.remove('added');
+        btn.textContent = original;
+      }, 1400);
+    });
+  });
+}
+bindAddButtons(document);
+
+var CART_KEY = 'rlc_cart';
+var cartItems = [];
+
+function loadCart(){
+  try { cartItems = JSON.parse(localStorage.getItem(CART_KEY)) || []; }
+  catch(e){ cartItems = []; }
+}
+function saveCart(){
+  localStorage.setItem(CART_KEY, JSON.stringify(cartItems));
+}
+function cartCount(){
+  return cartItems.reduce(function(t, it){ return t + it.qty; }, 0);
+}
+function findCatalogItem(sku){
+  for(var i = 0; i < CATALOGO.length; i++){
+    if(CATALOGO[i].sku === sku) return CATALOGO[i];
+  }
+  return null;
+}
+function addToCart(sku){
+  var info = findCatalogItem(sku);
+  var existing = null;
+  for(var i = 0; i < cartItems.length; i++){
+    if(cartItems[i].sku === sku){ existing = cartItems[i]; break; }
+  }
+  if(existing){ existing.qty += 1; }
+  else { cartItems.push({ sku: sku, nombre: info ? info.nombre : 'Producto', marca: info ? info.marca : '', qty: 1 }); }
+  saveCart();
+  renderCart();
+}
+function changeQty(sku, delta){
+  for(var i = 0; i < cartItems.length; i++){
+    if(cartItems[i].sku === sku){
+      cartItems[i].qty += delta;
+      if(cartItems[i].qty <= 0) cartItems.splice(i, 1);
+      break;
+    }
+  }
+  saveCart();
+  renderCart();
+}
+function removeItem(sku){
+  cartItems = cartItems.filter(function(it){ return it.sku !== sku; });
+  saveCart();
+  renderCart();
+}
+function cartItemHtml(it){
+  return '<div class="cart-item" data-sku="' + esc(it.sku) + '">'
+    + '<div class="cart-item-img"></div>'
+    + '<div class="cart-item-info">'
+    + '<p class="cart-item-name">' + esc(it.nombre) + '</p>'
+    + (it.marca ? '<p class="cart-item-meta">' + esc(it.marca) + '</p>' : '')
+    + '<p class="cart-item-meta">SKU ' + esc(it.sku) + ' · Precio por definir</p>'
+    + '<span class="cart-qty">'
+    + '<button type="button" data-qty="-1" data-sku="' + esc(it.sku) + '" aria-label="Restar">−</button>'
+    + '<span>' + it.qty + '</span>'
+    + '<button type="button" data-qty="1" data-sku="' + esc(it.sku) + '" aria-label="Sumar">+</button>'
+    + '</span></div>'
+    + '<button type="button" class="cart-item-del" data-del="' + esc(it.sku) + '" aria-label="Eliminar">'
+    + '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M8 6V4a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v2m3 0v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/></svg>'
+    + '</button></div>';
+}
+function renderCart(){
+  var total = cartCount();
+  document.getElementById('cartTopCount').textContent = total;
+  document.getElementById('cartMobileCount').textContent = total;
+  var box = document.getElementById('cartItems');
+  var foot = document.getElementById('cartFoot');
+  if(!cartItems.length){
+    box.innerHTML = '<p class="cart-empty">Tu carrito está vacío.<br>Explora el catálogo y agrega tus favoritos.</p>';
+    foot.style.display = 'none';
+    return;
+  }
+  box.innerHTML = cartItems.map(cartItemHtml).join('');
+  box.querySelectorAll('.cart-item').forEach(attachProductImage);
+  box.querySelectorAll('[data-qty]').forEach(function(b){
+    b.addEventListener('click', function(){
+      changeQty(b.getAttribute('data-sku'), Number(b.getAttribute('data-qty')));
+    });
+  });
+  box.querySelectorAll('[data-del]').forEach(function(b){
+    b.addEventListener('click', function(){ removeItem(b.getAttribute('data-del')); });
+  });
+  foot.style.display = 'block';
+}
+function openCart(){
+  renderCart();
+  document.getElementById('cartOverlay').classList.add('open');
+  document.getElementById('cartDrawer').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeCart(){
+  document.getElementById('cartOverlay').classList.remove('open');
+  document.getElementById('cartDrawer').classList.remove('open');
+  document.body.style.overflow = '';
+}
+document.getElementById('cartOpenTop').addEventListener('click', openCart);
+document.getElementById('cartClose').addEventListener('click', closeCart);
+document.getElementById('cartContinue').addEventListener('click', closeCart);
+document.getElementById('cartOverlay').addEventListener('click', closeCart);
+document.getElementById('mCartLink').addEventListener('click', function(e){
+  e.preventDefault();
+  if(mobileNav.classList.contains('open')) closeMenu();
+  openCart();
+});
+document.getElementById('cartCheckout').addEventListener('click', function(){
+  if(!cartItems.length) return;
+  var lines = cartItems.map(function(it, i){
+    return (i + 1) + '. ' + it.nombre + ' (x' + it.qty + ')' + (it.marca ? ' - ' + it.marca : '') + ' | SKU ' + it.sku;
+  });
+  var msg = 'Hola, quiero confirmar mi pedido:\n\n' + lines.join('\n') + '\n\nTotal a confirmar en tienda.';
+  window.open('https://wa.me/56927172138?text=' + encodeURIComponent(msg), '_blank');
+});
+
+loadCart();
+renderCart();
+
+var menuToggle = document.getElementById('menuToggle');
+var menuCloseBtn = document.getElementById('menuCloseBtn');
+var mobileNav = document.getElementById('mobileNav');
+var menuIconOpen = document.getElementById('menuIconOpen');
+var menuIconClose = document.getElementById('menuIconClose');
+
+function openMenu(){
+  mobileNav.classList.add('open');
+  menuIconOpen.style.display = 'none';
+  menuIconClose.style.display = 'flex';
+  document.body.style.overflow = 'hidden';
+}
+function closeMenu(){
+  mobileNav.classList.remove('open');
+  menuIconOpen.style.display = 'flex';
+  menuIconClose.style.display = 'none';
+  document.body.style.overflow = '';
+}
+menuToggle.addEventListener('click', function(){
+  if(mobileNav.classList.contains('open')){ closeMenu(); } else { openMenu(); }
+});
+menuCloseBtn.addEventListener('click', closeMenu);
+mobileNav.querySelectorAll('a.m-link').forEach(function(a){
+  a.addEventListener('click', closeMenu);
+});
+
+var searchOverlay = document.getElementById('searchOverlay');
+document.getElementById('searchToggle').addEventListener('click', function(){
+  searchOverlay.classList.toggle('open');
+  if(searchOverlay.classList.contains('open')){
+    searchOverlay.querySelector('input').focus();
+  }
+});
+document.getElementById('searchClose').addEventListener('click', function(){
+  searchOverlay.classList.remove('open');
+});
+document.querySelectorAll('.search-overlay input').forEach(function(input){
+  input.addEventListener('keydown', function(e){
+    if(e.key === 'Enter'){
+      searchCatalog(input.value);
+      searchOverlay.classList.remove('open');
+    }
+  });
+});
+
+if(window.innerWidth <= 760){
+  document.querySelectorAll('.footer-col').forEach(function(col){
+    if(col.classList.contains('footer-brand')) return;
+    col.addEventListener('click', function(){
+      col.classList.toggle('open');
+    });
+  });
+}
+
+var STORAGE_KEY = 'rlc_accounts';
+var SESSION_KEY = 'rlc_session';
+
+function getAccounts(){
+  try { return JSON.parse(localStorage.getItem(STORAGE_KEY)) || []; }
+  catch(e){ return []; }
+}
+function saveAccounts(list){
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(list));
+}
+function getSession(){
+  try { return JSON.parse(localStorage.getItem(SESSION_KEY)) || null; }
+  catch(e){ return null; }
+}
+function setSession(email){
+  if(email){ localStorage.setItem(SESSION_KEY, JSON.stringify(email)); }
+  else { localStorage.removeItem(SESSION_KEY); }
+}
+
+var authModal = document.getElementById('authModal');
+var authMsg = document.getElementById('authMsg');
+var registerForm = document.getElementById('registerForm');
+var loginForm = document.getElementById('loginForm');
+var authTitle = document.getElementById('authTitle');
+var authSub = document.getElementById('authSub');
+var tabLogin = document.getElementById('tabLogin');
+var tabRegister = document.getElementById('tabRegister');
+var footSwitch = document.getElementById('footSwitch');
+var modalFoot = document.getElementById('modalFoot');
+var accountLabel = document.getElementById('accountLabel');
+var accountWrap = document.getElementById('accountWrap');
+var accountMenu = document.getElementById('accountMenu');
+var accName = document.getElementById('accName');
+var accEmail = document.getElementById('accEmail');
+var menuMyAccount = document.getElementById('menuMyAccount');
+var menuMyOrders = document.getElementById('menuMyOrders');
+var menuSep = document.getElementById('menuSep');
+var menuLogout = document.getElementById('menuLogout');
+var mAccountLink = document.getElementById('mAccountLink');
+var mLogoutLink = document.getElementById('mLogoutLink');
+
+function showMsg(text, ok){
+  authMsg.textContent = text;
+  authMsg.className = 'form-msg show ' + (ok ? 'ok' : 'error');
+}
+function clearMsg(){ authMsg.className = 'form-msg'; }
+
+function openAuth(mode){
+  authModal.classList.add('open');
+  document.body.style.overflow = 'hidden';
+  setTab(mode || 'register');
+  clearMsg();
+}
+function closeAuth(){
+  authModal.classList.remove('open');
+  document.body.style.overflow = '';
+}
+function setTab(mode){
+  clearMsg();
+  var isLogin = mode === 'login';
+  tabLogin.classList.toggle('active', isLogin);
+  tabRegister.classList.toggle('active', !isLogin);
+  registerForm.style.display = isLogin ? 'none' : 'block';
+  loginForm.style.display = isLogin ? 'block' : 'none';
+  authTitle.textContent = isLogin ? 'Iniciar sesión' : 'Crear cuenta';
+  authSub.textContent = isLogin ? 'Bienvenido de vuelta' : 'Únete a Rizos, Lisos y Colores';
+  footSwitch.textContent = isLogin ? 'Crear cuenta' : 'Iniciar sesión';
+  modalFoot.firstChild.textContent = isLogin ? '¿No tienes cuenta? ' : '¿Ya tienes cuenta? ';
+}
+
+function currentUser(){
+  var session = getSession();
+  if(!session) return null;
+  return getAccounts().filter(function(a){ return a.email === session; })[0] || null;
+}
+
+function updateAccountUI(){
+  var user = currentUser();
+  if(user){
+    accountLabel.textContent = user.nombre.split(' ')[0];
+    accName.style.display = 'block';
+    accName.childNodes[0].textContent = 'Hola, ' + user.nombre + ' ';
+    accEmail.textContent = user.email;
+    menuMyAccount.style.display = 'flex';
+    menuMyOrders.style.display = 'flex';
+    menuSep.style.display = 'block';
+    menuLogout.style.display = 'flex';
+    mAccountLink.textContent = 'Mi cuenta (' + user.nombre.split(' ')[0] + ')';
+    mLogoutLink.style.display = 'inline';
+  } else {
+    accountLabel.textContent = 'Mi cuenta';
+    accName.style.display = 'none';
+    menuMyAccount.style.display = 'none';
+    menuMyOrders.style.display = 'none';
+    menuSep.style.display = 'none';
+    menuLogout.style.display = 'none';
+    mAccountLink.textContent = 'Mi cuenta';
+    mLogoutLink.style.display = 'none';
+  }
+}
+
+var accountTrigger = document.getElementById('accountTrigger');
+accountTrigger.addEventListener('click', function(e){
+  e.stopPropagation();
+  if(currentUser()){
+    accountWrap.classList.toggle('open');
+  } else {
+    openAuth('login');
+  }
+});
+document.addEventListener('click', function(e){
+  if(!accountWrap.contains(e.target)){ accountWrap.classList.remove('open'); }
+});
+
+mAccountLink.addEventListener('click', function(e){
+  e.preventDefault();
+  closeMenu();
+  if(currentUser()){ openAuth('login'); } else { openAuth('register'); }
+});
+mLogoutLink.addEventListener('click', function(e){
+  e.preventDefault();
+  logout();
+  closeMenu();
+});
+menuLogout.addEventListener('click', function(){
+  logout();
+  accountWrap.classList.remove('open');
+});
+
+function logout(){
+  setSession(null);
+  updateAccountUI();
+  showMsg('Has cerrado sesión correctamente.', true);
+  openAuth('login');
+  setTimeout(closeAuth, 1200);
+}
+
+tabLogin.addEventListener('click', function(){ setTab('login'); });
+tabRegister.addEventListener('click', function(){ setTab('register'); });
+footSwitch.addEventListener('click', function(){
+  setTab(tabRegister.classList.contains('active') ? 'login' : 'register');
+});
+document.getElementById('authClose').addEventListener('click', closeAuth);
+authModal.addEventListener('click', function(e){
+  if(e.target === authModal){ closeAuth(); }
+});
+
+registerForm.addEventListener('submit', function(e){
+  e.preventDefault();
+  clearMsg();
+  var nombre = document.getElementById('regName').value.trim();
+  var email = document.getElementById('regEmail').value.trim().toLowerCase();
+  var pass = document.getElementById('regPass').value;
+  var pass2 = document.getElementById('regPass2').value;
+  if(!nombre){ showMsg('Ingresa tu nombre completo.', false); return; }
+  if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){ showMsg('Ingresa un correo válido.', false); return; }
+  if(pass.length < 6){ showMsg('La contraseña debe tener al menos 6 caracteres.', false); return; }
+  if(pass !== pass2){ showMsg('Las contraseñas no coinciden.', false); return; }
+  var accounts = getAccounts();
+  if(accounts.some(function(a){ return a.email === email; })){
+    showMsg('Ya existe una cuenta con ese correo. Inicia sesión.', false);
+    return;
+  }
+  accounts.push({ nombre: nombre, email: email, pass: pass });
+  saveAccounts(accounts);
+  setSession(email);
+  updateAccountUI();
+  showMsg('¡Cuenta creada! Bienvenido, ' + nombre.split(' ')[0] + '.', true);
+  setTimeout(closeAuth, 1200);
+  registerForm.reset();
+});
+
+loginForm.addEventListener('submit', function(e){
+  e.preventDefault();
+  clearMsg();
+  var email = document.getElementById('loginEmail').value.trim().toLowerCase();
+  var pass = document.getElementById('loginPass').value;
+  var user = getAccounts().filter(function(a){ return a.email === email; })[0];
+  if(!user || user.pass !== pass){
+    showMsg('Correo o contraseña incorrectos.', false);
+    return;
+  }
+  setSession(email);
+  updateAccountUI();
+  showMsg('¡Hola de nuevo, ' + user.nombre.split(' ')[0] + '!', true);
+  setTimeout(closeAuth, 1200);
+  loginForm.reset();
+});
+
+document.getElementById('menuMyAccount').addEventListener('click', function(e){
+  e.preventDefault();
+  accountWrap.classList.remove('open');
+  alert('Aquí se mostrará tu cuenta de cliente cuando esté disponible.');
+});
+document.getElementById('menuMyOrders').addEventListener('click', function(e){
+  e.preventDefault();
+  accountWrap.classList.remove('open');
+  alert('Tus pedidos aparecerán aquí cuando realices tu primera compra.');
+});
+
+document.querySelectorAll('.footer-col ul a[data-account]').forEach(function(a){
+  a.addEventListener('click', function(e){
+    e.preventDefault();
+    if(!currentUser()){ openAuth('login'); }
+    else { alert('Aquí se mostrará tu cuenta de cliente cuando esté disponible.'); }
+  });
+});
+
+// Catálogo completo
+var CATEGORIES = ['Cabello Rizado','Cabello Liso','Coloración','Accesorios','Marcas'];
+var FALLBACK_CATALOGO = [
+  { sku:'7898952516112', nombre:'BOTOX VIOLET ARGAN MASCARA', marca:'', categoria:'Cabello Liso', stock:0 },
+  { sku:'8051566440931', nombre:'COLORTRIBE FLAMINGO', marca:'', categoria:'Coloración', stock:0 },
+  { sku:'6323956010683', nombre:'Balsamo para rizos Reania 500 ml', marca:'', categoria:'Cabello Rizado', stock:0 },
+  { sku:'8682225550311', nombre:'CERA IMMORTAL NYC POMADE', marca:'', categoria:'Accesorios', stock:0 },
+  { sku:'MECHAS-BLANCAS-001', nombre:'White Meches', marca:'', categoria:'Coloración', stock:0 }
+];
+var CATALOGO = window.CATALOGO || FALLBACK_CATALOGO;
+
+var catalogGrid = document.getElementById('catalogGrid');
+var catalogFilters = document.getElementById('catalogFilters');
+var catalogSearch = document.getElementById('catalogSearchInput');
+var catalogCount = document.getElementById('catalogCount');
+var activeCat = 'Todos';
+var catalogQuery = '';
+
+function productCardHtml(p){
+  var marca = p.marca ? '<p class="product-brand">' + esc(p.marca) + '</p>' : '';
+  return '<div class="product-card" data-sku="' + esc(p.sku) + '">'
+    + '<div class="product-img">'
+    + '<svg width="46" height="46" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M24 5 9 18h6l-5 18c-1 3 1 5 4 5h20c3 0 5-2 4-5l-5-18h6z"/><path d="M20 5h8l-2 8h-4z"/></svg>'
+    + '<span>Imagen de producto</span>'
+    + '</div>'
+    + '<div class="product-body">'
+    + '<h3>' + esc(p.nombre) + '</h3>'
+    + marca
+    + '<p class="product-desc">Descripción pendiente</p>'
+    + '<div class="product-price">Precio por definir<small>Cada producto pronto disponible</small></div>'
+    + '<button class="btn btn-navy btn-add" data-add>Agregar al carrito</button>'
+    + '</div></div>';
+}
+
+function renderCatalog(){
+  var q = catalogQuery.toLowerCase();
+  var list = CATALOGO.filter(function(p){
+    var okCat = activeCat === 'Todos'
+      ? true
+      : (activeCat === 'Sin categoría' ? !p.categoria : p.categoria === activeCat);
+    var okQ = !q || (p.nombre + ' ' + (p.marca || '')).toLowerCase().indexOf(q) !== -1;
+    return okCat && okQ;
+  });
+  if(!list.length){
+    catalogGrid.innerHTML = '<p class="catalog-empty">No hay productos que coincidan con tu búsqueda.</p>';
+  } else {
+    catalogGrid.innerHTML = list.map(productCardHtml).join('');
+    catalogGrid.querySelectorAll('.product-card').forEach(attachProductImage);
+    bindAddButtons(catalogGrid);
+    bindProductCards(catalogGrid);
+  }
+  catalogCount.textContent = 'Mostrando ' + list.length + ' de ' + CATALOGO.length + ' productos disponibles.';
+}
+
+var presentCats = {};
+var hasNoCat = false;
+CATALOGO.forEach(function(p){
+  if(p.categoria){ presentCats[p.categoria] = true; }
+  else { hasNoCat = true; }
+});
+var chipCats = ['Todos'];
+CATEGORIES.forEach(function(c){ if(presentCats[c]) chipCats.push(c); });
+if(hasNoCat) chipCats.push('Sin categoría');
+
+chipCats.forEach(function(cat){
+  var b = document.createElement('button');
+  b.type = 'button';
+  b.className = 'chip' + (cat === activeCat ? ' active' : '');
+  b.textContent = cat;
+  b.addEventListener('click', function(){
+    activeCat = cat;
+    catalogFilters.querySelectorAll('.chip').forEach(function(c){ c.classList.toggle('active', c === b); });
+    renderCatalog();
+  });
+  catalogFilters.appendChild(b);
+});
+
+catalogSearch.addEventListener('input', function(){
+  catalogQuery = this.value.trim();
+  renderCatalog();
+});
+
+var productModal = document.getElementById('productModal');
+
+function openProduct(sku){
+  var p = null;
+  for(var i = 0; i < CATALOGO.length; i++){
+    if(CATALOGO[i].sku === sku){ p = CATALOGO[i]; break; }
+  }
+  if(!p) return;
+
+  productModal.setAttribute('data-sku', p.sku);
+  document.getElementById('pBrand').textContent = p.marca || '';
+  document.getElementById('pName').textContent = p.nombre;
+  document.getElementById('pCat').textContent = p.categoria || 'General';
+  document.getElementById('pPrice').innerHTML = 'Precio por definir<small>Cada producto pronto disponible</small>';
+  document.getElementById('pDesc').textContent = 'Descripción pendiente';
+
+  var avail = document.getElementById('pAvail');
+  var stock = Number(p.stock) || 0;
+  if(stock > 0){
+    avail.textContent = 'Disponible · Stock: ' + stock;
+    avail.classList.remove('out');
+  } else {
+    avail.textContent = 'Consultar disponibilidad en tienda';
+    avail.classList.add('out');
+  }
+
+  document.getElementById('pWhatsapp').href = 'https://wa.me/56927172138?text=' +
+    encodeURIComponent('Hola, quiero consultar por el producto ' + p.nombre + ' (SKU ' + p.sku + ')');
+
+  var addBtn = document.getElementById('pAdd');
+  addBtn.classList.remove('added');
+  addBtn.textContent = 'Agregar al carrito';
+  addBtn.onclick = function(){
+    addToCart(p.sku);
+    addBtn.classList.add('added');
+    addBtn.textContent = '¡Agregado!';
+    setTimeout(function(){
+      addBtn.classList.remove('added');
+      addBtn.textContent = 'Agregar al carrito';
+    }, 1400);
+  };
+
+  attachProductImage(productModal);
+  productModal.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeProductModal(){
+  productModal.classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+document.getElementById('productModalClose').addEventListener('click', closeProductModal);
+productModal.addEventListener('click', function(e){
+  if(e.target === productModal) closeProductModal();
+});
+
+function bindProductCards(scope){
+  (scope || document).querySelectorAll('.product-card[data-sku]').forEach(function(card){
+    if(card.dataset.detailBound) return;
+    card.dataset.detailBound = '1';
+    card.style.cursor = 'pointer';
+    card.addEventListener('click', function(e){
+      if(e.target.closest('[data-add]')) return;
+      openProduct(card.getAttribute('data-sku'));
+    });
+  });
+}
+bindProductCards(document);
+
+var catalogPanel = document.getElementById('catalogPanel');
+var catalogToggle = document.getElementById('catalogToggle');
+var catalogOpened = false;
+
+catalogToggle.addEventListener('click', function(){
+  var opening = !catalogPanel.classList.contains('open');
+  catalogPanel.classList.toggle('open', opening);
+  catalogToggle.classList.toggle('open', opening);
+  catalogToggle.setAttribute('aria-expanded', opening ? 'true' : 'false');
+  document.getElementById('catalogToggleLabel').textContent = opening ? 'Ocultar catálogo' : 'Ver catálogo completo';
+  if(opening && !catalogOpened){ catalogOpened = true; renderCatalog(); }
+});
+
+function openCatalogCategory(cat){
+  if(cat !== 'Todos' && !presentCats[cat]) cat = 'Todos';
+  if(!catalogPanel.classList.contains('open')){
+    catalogPanel.classList.add('open');
+    catalogToggle.classList.add('open');
+    catalogToggle.setAttribute('aria-expanded', 'true');
+    document.getElementById('catalogToggleLabel').textContent = 'Ocultar catálogo';
+  }
+  catalogOpened = true;
+  activeCat = cat;
+  catalogFilters.querySelectorAll('.chip').forEach(function(c){
+    c.classList.toggle('active', c.textContent === cat);
+  });
+  renderCatalog();
+  var top = document.getElementById('catalogo').getBoundingClientRect().top + window.pageYOffset - 70;
+  window.scrollTo({ top: top, behavior: 'smooth' });
+}
+
+document.querySelectorAll('[data-cat]').forEach(function(el){
+  el.addEventListener('click', function(e){
+    e.preventDefault();
+    if(mobileNav.contains(el)) closeMenu();
+    openCatalogCategory(el.getAttribute('data-cat'));
+  });
+  el.addEventListener('keydown', function(e){
+    if(el.tagName === 'DIV' && (e.key === 'Enter' || e.key === ' ')){
+      e.preventDefault();
+      openCatalogCategory(el.getAttribute('data-cat'));
+    }
+  });
+});
+
+function searchCatalog(q){
+  if(!catalogPanel.classList.contains('open')){
+    catalogPanel.classList.add('open');
+    catalogToggle.classList.add('open');
+    catalogToggle.setAttribute('aria-expanded', 'true');
+    document.getElementById('catalogToggleLabel').textContent = 'Ocultar catálogo';
+  }
+  catalogOpened = true;
+  activeCat = 'Todos';
+  catalogFilters.querySelectorAll('.chip').forEach(function(c){
+    c.classList.toggle('active', c.textContent === 'Todos');
+  });
+  catalogQuery = q;
+  document.getElementById('catalogSearchInput').value = q;
+  renderCatalog();
+  var top = document.getElementById('catalogo').getBoundingClientRect().top + window.pageYOffset - 70;
+  window.scrollTo({ top: top, behavior: 'smooth' });
+}
+
+document.getElementById('mobileSearchInput').addEventListener('keydown', function(e){
+  if(e.key === 'Enter'){
+    searchCatalog(this.value);
+    if(mobileNav.classList.contains('open')) closeMenu();
+  }
+});
+
+updateAccountUI();
+</script>
+</body>
+</html>

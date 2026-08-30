@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Listado de Productos · Rizos, Lisos y Colores</title>
+<style>
+  :root{
+    --navy:#0e2f57;--dark:#081f3d;--deep:#0a2445;
+    --gold:#d4af37;--gold-dark:#b8942f;--gold-light:#e6c85a;
+    --beige:#e7d7b5;--line:#ece7dc;--muted:#7c8496;--bg:#faf9f6;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{font-family:'Segoe UI',Arial,Helvetica,sans-serif;background:var(--bg);color:var(--navy);}
+  a{color:var(--gold-dark);}
+  header{background:linear-gradient(135deg,var(--navy),var(--deep));color:#fff;padding:28px 4vw;}
+  header h1{font-size:24px;font-weight:800;letter-spacing:.5px;}
+  header p{color:#c9d4e6;font-size:13px;margin-top:6px;}
+  header p b{color:var(--gold);}
+  .wrap{max-width:1100px;margin:0 auto;padding:24px 4vw 60px;}
+  .toolbar{display:flex;flex-wrap:wrap;align-items:center;gap:14px;margin-bottom:18px;position:sticky;top:0;background:var(--bg);padding:12px 0;z-index:5;}
+  .search{flex:1;min-width:220px;position:relative;}
+  .search input{width:100%;padding:12px 16px;border:1px solid var(--line);border-radius:10px;font-family:inherit;font-size:14px;color:var(--navy);background:#fff;outline:none;}
+  .search input:focus{border-color:var(--gold);}
+  select{padding:12px 14px;border:1px solid var(--line);border-radius:10px;font-family:inherit;font-size:13px;color:var(--navy);background:#fff;outline:none;cursor:pointer;}
+  .count{font-size:12.5px;color:var(--muted);font-weight:600;}
+  .btn-copy{padding:12px 18px;border:1px solid var(--gold);border-radius:10px;background:var(--gold);color:#fff;font-family:inherit;font-size:13px;font-weight:700;letter-spacing:.3px;cursor:pointer;transition:background .15s;}
+  .btn-copy:hover{background:var(--gold-dark);border-color:var(--gold-dark);}
+  .btn-copy.done{background:#2e7d4f;border-color:#2e7d4f;}
+  table{width:100%;border-collapse:collapse;background:#fff;border:1px solid var(--line);border-radius:12px;overflow:hidden;box-shadow:0 10px 30px rgba(8,31,61,.06);}
+  thead th{background:var(--navy);color:#fff;font-size:11px;font-weight:800;letter-spacing:1px;text-transform:uppercase;text-align:left;padding:13px 14px;}
+  tbody td{padding:11px 14px;border-top:1px solid var(--line);font-size:13px;vertical-align:top;}
+  tbody tr:nth-child(even){background:#fbfaf6;}
+  tbody tr:hover{background:#f3efe3;}
+  td.sku{font-family:Consolas,monospace;font-size:12px;color:var(--muted);letter-spacing:.3px;}
+  td.img{width:46px;}
+  .thumb{width:40px;height:40px;border-radius:8px;background:linear-gradient(140deg,#f7f4ee,#eee8dc);overflow:hidden;display:flex;align-items:center;justify-content:center;}
+  .thumb img{width:100%;height:100%;object-fit:contain;}
+  .thumb svg{width:22px;height:22px;color:#c2b18a;}
+  .badge{display:inline-block;padding:3px 9px;border-radius:20px;font-size:10.5px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;text-align:center;white-space:nowrap;}
+  .badge.rizo{background:#fdeef0;color:#b3266b;}
+  .badge.liso{background:#e8f0fb;color:#0e5db3;}
+  .badge.color{background:#fdf0e6;color:#b3590e;}
+  .badge.acc{background:#eef6ee;color:#2e7d4f;}
+  .badge.none{background:#f1f1f1;color:#8a94a6;}
+  .foto{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:800;letter-spacing:.4px;text-transform:uppercase;padding:4px 10px;border-radius:20px;white-space:nowrap;}
+  .foto.si{background:#eef6ee;color:#2e7d4f;}
+  .foto.no{background:#fdeceb;color:#b3261e;}
+  .foto-col{text-align:center;}
+  .empty{text-align:center;color:var(--muted);padding:40px;font-size:14px;}
+  footer{text-align:center;color:var(--muted);font-size:12px;padding:24px 4vw 40px;}
+  @media (max-width:640px){
+    .toolbar{flex-direction:column;align-items:stretch;}
+    .hide-sm{display:none;}
+    thead th, tbody td{padding:9px 10px;font-size:12px;}
+  }
+</style>
+</head>
+<body>
+<header>
+  <h1>Listado de Productos</h1>
+  <p><b>Rizos, Lisos y Colores</b> · Tu aliado en cada estilo · <span id="totalInfo">Cargando…</span></p>
+</header>
+
+<div class="wrap">
+  <div class="toolbar">
+    <div class="search">
+      <input type="text" id="buscar" placeholder="Buscar por nombre, marca o SKU…" aria-label="Buscar">
+    </div>
+    <select id="filtroCat" aria-label="Filtrar por categoría">
+      <option value="Todos">Todas las categorías</option>
+    </select>
+    <select id="filtroImg" aria-label="Filtrar por imagen">
+      <option value="Todos">Con y sin imagen</option>
+      <option value="ConImagen">Solo con imagen</option>
+      <option value="SinImagen">Solo sin imagen</option>
+    </select>
+    <button type="button" class="btn-copy" id="copiarSinFoto">Copiar SKUs sin foto</button>
+    <span class="count" id="countInfo"></span>
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th class="hide-sm" style="width:46px">Img</th>
+        <th>Producto</th>
+        <th>Marca</th>
+        <th>Categoría</th>
+        <th>SKU</th>
+        <th style="text-align:center">Foto</th>
+      </tr>
+    </thead>
+    <tbody id="cuerpo"></tbody>
+  </table>
+  <div class="empty" id="vacio" style="display:none">No se encontraron productos con esa búsqueda.</div>
+</div>
+
+<footer>Listado generado a partir del catálogo · <a href="index.html">Volver a la tienda</a></footer>
+
+<script src="catalogo.js"></script>
+<script>
+const PRODUCT_IMG_EXTS = ['.jpg', '.jpeg', '.png', '.webp'];
+const DESCONOCIDO = { nombre:'Producto sin nombre', marca:'', categoria:null };
+
+const PRODUCTOS = (window.CATALOGO || []).map(function(p){
+  return { sku:p.sku, nombre:p.nombre, marca:p.marca||'', categoria:p.categoria||null };
+});
+
+let filtroCat = 'Todos';
+let filtroImg = 'Todos';
+let query = '';
+
+function hasImage(sku){
+  const img = new Image();
+  return new Promise(function(resolve){
+    let done = false;
+    function attempt(i){
+      if(done) return;
+      if(i >= PRODUCT_IMG_EXTS.length){ done=true; resolve(false); return; }
+      img.onload = function(){ if(!done){ done=true; resolve(true); } };
+      img.onerror = function(){ attempt(i+1); };
+      img.src = 'images/productos/' + sku + PRODUCT_IMG_EXTS[i];
+    }
+    attempt(0);
+  });
+}
+
+const imageCache = {};
+function cachedHasImage(sku){
+  if(imageCache[sku] !== undefined) return Promise.resolve(imageCache[sku]);
+  return hasImage(sku).then(function(r){ imageCache[sku] = r; return r; });
+}
+
+function esc(s){ return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+
+function badgeClass(cat){
+  if(!cat) return 'badge none';
+  const c = cat.toLowerCase();
+  if(c.indexOf('riza')!==-1) return 'badge rizo';
+  if(c.indexOf('liso')!==-1) return 'badge liso';
+  if(c.indexOf('color')!==-1) return 'badge color';
+  if(c.indexOf('acce')!==-1) return 'badge acc';
+  return 'badge none';
+}
+
+function thumbHtml(sku){
+  return '<div class="thumb" data-sku="' + esc(sku) + '">'
+    + '<svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M24 5 9 18h6l-5 18c-1 3 1 5 4 5h20c3 0 5-2 4-5l-5-18h6z"/><path d="M20 5h8l-2 8h-4z"/></svg>'
+    + '</div>';
+}
+
+function attachThumb(el){
+  const sku = el.getAttribute('data-sku');
+  function tryLoad(i){
+    if(i >= PRODUCT_IMG_EXTS.length) return;
+    const img = new Image();
+    img.onload = function(){ el.innerHTML=''; img.style.cssText='width:100%;height:100%;object-fit:contain;'; el.appendChild(img); };
+    img.onerror = function(){ tryLoad(i+1); };
+    img.src = 'images/productos/' + sku + PRODUCT_IMG_EXTS[i];
+  }
+  tryLoad(0);
+}
+
+function buildCategories(){
+  const set = new Set();
+  PRODUCTOS.forEach(function(p){ if(p.categoria) set.add(p.categoria); });
+  const cats = ['Todos'];
+  ['Cabello Rizado','Cabello Liso','Coloración','Accesorios'].forEach(function(c){ if(set.has(c)) cats.push(c); });
+  set.forEach(function(c){ if(cats.indexOf(c)===-1) cats.push(c); });
+  const sel = document.getElementById('filtroCat');
+  cats.forEach(function(c){
+    const o = document.createElement('option');
+    o.value = c; o.textContent = c;
+    sel.appendChild(o);
+  });
+}
+
+async function render(){
+  const q = query.toLowerCase().trim();
+  let list = PRODUCTOS.filter(function(p){
+    const okCat = filtroCat==='Todos' || p.categoria===filtroCat;
+    const okQ = !q || (p.nombre+' '+(p.marca||'')+' '+p.sku).toLowerCase().indexOf(q)!==-1;
+    return okCat && okQ;
+  });
+
+  const conImg = await Promise.all(list.map(function(p){ return cachedHasImage(p.sku); }));
+  const conImgs = {};
+  list.forEach(function(p,i){ conImgs[p.sku] = conImg[i]; });
+
+  if(filtroImg === 'ConImagen') list = list.filter(function(p){ return conImgs[p.sku]; });
+  else if(filtroImg === 'SinImagen') list = list.filter(function(p){ return !conImgs[p.sku]; });
+
+  const cuerpo = document.getElementById('cuerpo');
+  document.getElementById('vacio').style.display = list.length ? 'none' : 'block';
+  cuerpo.innerHTML = list.map(function(p){
+    const cat = p.categoria ? p.categoria : 'Sin categoría';
+    const has = conImgs[p.sku];
+    return '<tr>'
+      + '<td class="hide-sm">' + thumbHtml(p.sku) + '</td>'
+      + '<td><strong>' + esc(p.nombre) + '</strong></td>'
+      + '<td>' + (p.marca ? esc(p.marca) : '—') + '</td>'
+      + '<td><span class="' + badgeClass(p.categoria) + '">' + esc(cat) + '</span></td>'
+      + '<td class="sku">' + esc(p.sku) + '</td>'
+      + '<td class="foto-col"><span class="foto ' + (has ? 'si' : 'no') + '">' + (has ? '✓ Con foto' : '✗ Sin foto') + '</span></td>'
+      + '</tr>';
+  }).join('');
+
+  cuerpo.querySelectorAll('.thumb').forEach(attachThumb);
+  const totalFiltro = list.length;
+  document.getElementById('countInfo').textContent = 'Mostrando ' + totalFiltro + ' de ' + PRODUCTOS.length + ' productos.';
+}
+
+document.getElementById('buscar').addEventListener('input', function(){ query = this.value; render(); });
+document.getElementById('filtroCat').addEventListener('change', function(){ filtroCat = this.value; render(); });
+document.getElementById('filtroImg').addEventListener('change', function(){ filtroImg = this.value; render(); });
+
+async function computeTotals(){
+  const results = await Promise.all(PRODUCTOS.map(function(p){ return cachedHasImage(p.sku); }));
+  const conFoto = results.filter(Boolean).length;
+  const sinFoto = PRODUCTOS.length - conFoto;
+  document.getElementById('totalInfo').textContent =
+    PRODUCTOS.length + ' productos · ' + conFoto + ' con foto · ' + sinFoto + ' sin foto';
+  return sinFoto;
+}
+
+function copyText(text){
+  if(navigator.clipboard && navigator.clipboard.writeText){
+    return navigator.clipboard.writeText(text);
+  }
+  return new Promise(function(resolve, reject){
+    const ta = document.createElement('textarea');
+    ta.value = text;
+    ta.style.cssText = 'position:fixed;left:-9999px;top:0;';
+    document.body.appendChild(ta);
+    ta.select();
+    try{
+      document.execCommand('copy') ? resolve() : reject(new Error('copy failed'));
+    }catch(e){ reject(e); }
+    finally{ document.body.removeChild(ta); }
+  });
+}
+
+document.getElementById('copiarSinFoto').addEventListener('click', async function(){
+  const btn = this;
+  btn.textContent = 'Analizando…';
+  await Promise.all(PRODUCTOS.map(function(p){
+    return imageCache[p.sku] !== undefined ? Promise.resolve(imageCache[p.sku]) : cachedHasImage(p.sku);
+  }));
+  const faltantes = PRODUCTOS.filter(function(p){ return imageCache[p.sku] === false; }).map(function(p){ return p.sku; });
+  if(!faltantes.length){
+    btn.textContent = 'No faltan fotos';
+    setTimeout(function(){ btn.textContent = 'Copiar SKUs sin foto'; }, 1800);
+    return;
+  }
+  try{
+    await copyText(faltantes.join('\r\n'));
+    btn.textContent = 'Copiados ' + faltantes.length + ' SKUs';
+  }catch(e){
+    btn.textContent = 'Error al copiar';
+  }
+  btn.classList.add('done');
+  setTimeout(function(){ btn.textContent = 'Copiar SKUs sin foto'; btn.classList.remove('done'); }, 2000);
+});
+
+buildCategories();
+render();
+computeTotals();
+</script>
+</body>
+</html>
